@@ -1,0 +1,44 @@
+# 测试环境配置
+
+# 运行模式(debug：调试模式，release：正式模式)
+RunMode: "debug"
+
+
+HTTP:
+  host: "0.0.0.0"
+  port: 10083
+
+Casbin:
+  # 是否启动自动加载策略
+  autoLoad: true
+  # 定期自动加载策略的时间间隔（单位：秒）
+  autoLoadInternal: 60
+  model: "./../role-system/configs/dev/casbin.conf"
+
+MySQL:
+  default:
+    host: "127.0.0.1"
+    port: 3306
+    dbName: "role_system"
+    user: "root"
+    password: "123456"
+    parameters: "charset=utf8mb4&parseTime=True&loc=Local&allowNativePasswords=true"
+
+Redis:
+  default:
+    host: "127.0.0.1"
+    port: 6379
+    user:
+    password: 
+    db: 0
+    timeout: 10
+
+Sentry:
+  dsn: ""
+  level: 3
+
+Statsd:
+  Host: "127.0.0.1"
+  Port: 8125
+  Prefix: "lh"
+  Name: "role-statsd"
